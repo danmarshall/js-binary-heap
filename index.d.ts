@@ -91,4 +91,70 @@ declare class BinaryHeap<K, V> {
         value: V;
     }): 1 | -1 | 0;
 }
-export = BinaryHeap;
+/**
+ * Heapifies a node.
+ *
+ * @private
+ * @param {BinaryHeap} heap The heap containing the node to heapify.
+ * @param {number} i The index of the node to heapify.
+ */
+declare function heapify<K, V>(heap: BinaryHeap<K, V>, i: number): void;
+/**
+ * Builds a heap from a node array, this will discard the heap's current data.
+ *
+ * @private
+ * @param {BinaryHeap} heap The heap to override.
+ * @param {Node[]} nodeArray The array of nodes for the new heap.
+ */
+declare function buildHeapFromNodeArray<K, V>(heap: BinaryHeap<K, V>, nodeArray: {
+    key: K;
+    value: V;
+}[]): void;
+/**
+ * Swaps two values in an array.
+ *
+ * @private
+ * @param {Array} array The array to swap on.
+ * @param {number} a The index of the first element.
+ * @param {number} b The index of the second element.
+ */
+declare function swap(array: any[], a: any, b: any): void;
+/**
+ * Gets the index of a node's parent.
+ *
+ * @private
+ * @param {number} i The index of the node to get the parent of.
+ * @return {number} The index of the node's parent.
+ */
+declare function getParent(i: number): number;
+/**
+ * Gets the index of a node's left child.
+ *
+ * @private
+ * @param {number} i The index of the node to get the left child of.
+ * @return {number} The index of the node's left child.
+ */
+declare function getLeft(i: number): number;
+/**
+ * Gets the index of a node's right child.
+ *
+ * @private
+ * @param {number} i The index of the node to get the right child of.
+ * @return {number} The index of the node's right child.
+ */
+declare function getRight(i: number): number;
+/**
+ * Creates a node.
+ *
+ * @constructor
+ * @param {Object} key The key of the new node.
+ * @param {Object} value The value of the new node.
+ */
+declare class Node<K, V> {
+    key: K;
+    value: V;
+    constructor(key: K, value: V);
+}
+declare module "@tyriar/binary-heap" {
+    export = BinaryHeap;
+}
